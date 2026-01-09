@@ -1,0 +1,24 @@
+﻿# Packet Tracer backup files
+*.pkz
+*-backup.pkt
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Large files
+*.iso
+*.ova
+*.vmdk
+
+# Temporary files
+*.tmp
+*.log
