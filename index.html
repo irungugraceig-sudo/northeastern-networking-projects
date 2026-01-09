@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace Wanjiru Irungu - Network Engineering Portfolio</title>
+    <title>Grace Wanjiru Irungu - Network Engineering & XR Research Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -32,9 +32,12 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 15px rgba(88, 28, 135, 0.4); }
-            50% { box-shadow: 0 0 30px rgba(88, 28, 135, 0.7); }
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
         }
         
         body {
@@ -262,6 +265,49 @@
             margin: 15px auto;
         }
         
+        .featured-project {
+            background: linear-gradient(135deg, 
+                rgba(139, 0, 139, 0.3) 0%, 
+                rgba(75, 0, 130, 0.3) 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(218, 112, 214, 0.5);
+            margin-bottom: 50px;
+            box-shadow: 0 0 40px rgba(139, 0, 139, 0.3);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .featured-header {
+            background: linear-gradient(135deg, 
+                rgba(139, 0, 139, 0.9) 0%, 
+                rgba(75, 0, 130, 0.9) 100%);
+            padding: 35px;
+            text-align: center;
+        }
+        
+        .featured-badge {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .featured-project h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            animation: glitch 5s infinite;
+        }
+        
+        .featured-body {
+            padding: 35px;
+        }
+        
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
@@ -337,12 +383,19 @@
             box-shadow: 0 4px 15px rgba(88, 28, 135, 0.4);
         }
         
-        .project-card ul {
+        .tech-badge.highlight {
+            background: linear-gradient(135deg, 
+                rgba(139, 0, 139, 0.6) 0%, 
+                rgba(75, 0, 130, 0.6) 100%);
+            border-color: rgba(218, 112, 214, 0.8);
+        }
+        
+        .project-card ul, .featured-body ul {
             margin: 20px 0 25px 20px;
             list-style: none;
         }
         
-        .project-card li {
+        .project-card li, .featured-body li {
             margin: 12px 0;
             padding-left: 28px;
             position: relative;
@@ -350,7 +403,7 @@
             line-height: 1.6;
         }
         
-        .project-card li::before {
+        .project-card li::before, .featured-body li::before {
             content: "→";
             position: absolute;
             left: 0;
@@ -381,6 +434,19 @@
             background: linear-gradient(135deg, 
                 rgba(88, 28, 135, 0.9) 0%, 
                 rgba(109, 40, 217, 0.9) 100%);
+        }
+        
+        .view-button.featured {
+            background: linear-gradient(135deg, 
+                rgba(139, 0, 139, 0.8) 0%, 
+                rgba(75, 0, 130, 0.8) 100%);
+            border-color: rgba(218, 112, 214, 0.6);
+            font-size: 1.1em;
+            padding: 16px 40px;
+        }
+        
+        .view-button.featured:hover {
+            box-shadow: 0 15px 40px rgba(139, 0, 139, 0.6);
         }
         
         .skills-section {
@@ -542,8 +608,8 @@
         <header>
             <div class="content">
                 <h1>GRACE WANJIRU IRUNGU</h1>
-                <p class="tagline">TELECOMMUNICATIONS NETWORK ENGINEER</p>
-                <p class="subtitle">"From submarine cables to AI-driven networks—building the future of connectivity"</p>
+                <p class="tagline">TELECOMMUNICATIONS ENGINEER | EMERGING TECH RESEARCHER</p>
+                <p class="subtitle">"Exploring next-generation communication systems—from submarine fiber to XR networks"</p>
                 
                 <div class="quick-links">
                     <a href="mailto:irungu.gr@northeastern.edu" class="quick-link-btn">✉️ CONTACT</a>
@@ -574,12 +640,53 @@
         
         <div class="content">
             <div class="intro">
-                <h2>🌌 FROM SUBMARINE CABLES TO AI RESEARCH</h2>
+                <h2>🌌 RESEARCHING EMERGING COMMUNICATION TECHNOLOGIES</h2>
                 <p>Seven years building East Africa's telecommunications backbone—managing submarine fiber deployments, securing $102M+ in project financing, and pioneering the first 1,400-meter deep-lake bathymetric survey at Lake Tanganyika. From NOC Engineer to Senior Program Manager, I've led complex international infrastructure projects across multiple countries.</p>
-                <p style="margin-top: 15px;">Now at Northeastern University's XR Immersive Media Lab, I'm analyzing network performance for Quest 3 VR headsets while pursuing my MS in Telecommunication Networks. My transition from infrastructure to AI/ML research is driven by one goal: becoming an inventor, starting with my "whisper protocol" concept for underwater laser communication systems.</p>
+                <p style="margin-top: 15px;">Now at Northeastern University's XR Immersive Media Lab, I'm researching how emerging technologies like XR/VR impact network infrastructure requirements. My work analyzes network performance for Quest 3 VR headsets—understanding how immersive communication systems demand fundamentally different approaches than traditional data networks. This research bridges my telecommunications foundation with the future of human-computer interaction and communication.</p>
             </div>
 
-            <h2 class="section-title">🚀 FEATURED PROJECTS</h2>
+            <h2 class="section-title">⭐ FEATURED RESEARCH PROJECT</h2>
+
+            <div class="featured-project">
+                <div class="featured-header">
+                    <span class="featured-badge">🔬 ORIGINAL RESEARCH</span>
+                    <h3>🔮 GLITCHWITCH</h3>
+                    <p style="font-size: 1.2em; margin-top: 10px;">XR Network Performance Analyzer for Quest 3 VR</p>
+                </div>
+                <div class="featured-body">
+                    <div class="tech-stack">
+                        <span class="tech-badge highlight">Python</span>
+                        <span class="tech-badge highlight">Wireshark Analysis</span>
+                        <span class="tech-badge highlight">WiFi Monitoring</span>
+                        <span class="tech-badge highlight">Quest 3 VR</span>
+                        <span class="tech-badge highlight">AI-Powered</span>
+                        <span class="tech-badge highlight">PDF Reporting</span>
+                    </div>
+                    <p style="color: #d4c5e8; margin-bottom: 20px; font-size: 1.1em;">Developed while researching network requirements for immersive communication systems at Northeastern's XR Lab. Traditional network monitoring tools don't understand how VR/XR applications experience network degradation—GlitchWitch fills this gap by analyzing performance through the lens of immersive experience quality.</p>
+                    
+                    <h4 style="color: #da70d6; margin: 20px 0 15px 0; font-size: 1.3em;">Research Question:</h4>
+                    <p style="color: #c4c4d8; margin-bottom: 15px;">How do we evaluate if a network is ready for next-generation immersive communication technologies like VR collaboration, remote presence, and spatial computing?</p>
+                    <h4 style="color: #da70d6; margin: 20px 0 15px 0; font-size: 1.3em;">Tool Capabilities:</h4>
+                    <ul>
+                        <li>Analyzes Wireshark packet captures for VR-specific metrics (latency <20ms, jitter <5ms, packet loss <0.5%)</li>
+                        <li>Calculates "VR Readiness Score" (0-100) based on thresholds that affect immersive communication</li>
+                        <li>Identifies exact timestamps where network glitches would break presence in VR collaboration</li>
+                        <li>Correlates WiFi signal strength with packet performance degradation</li>
+                        <li>Generates professional PDF reports with AI-powered interpretation</li>
+                        <li>Predicts network conditions that cause motion sickness or communication breakdowns</li>
+                    </ul>
+                    
+                    <h4 style="color: #da70d6; margin: 20px 0 15px 0; font-size: 1.3em;">Research Impact:</h4>
+                    <p style="color: #c4c4d8;">This research addresses a critical gap in telecommunications: as communication moves from 2D screens to immersive 3D spaces, our infrastructure evaluation methods must evolve. GlitchWitch demonstrates that VR collaboration systems require fundamentally different network performance criteria than traditional video conferencing or data applications.</p>
+                    
+                    <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="https://github.com/irungugraceig-sudo/Glitchwitch" target="_blank" class="view-button featured">VIEW ON GITHUB →</a>
+                        <a href="glitchwitch-project.html" class="view-button">FULL DOCUMENTATION →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">🚀 ACADEMIC PROJECTS</h2>
 
             <div class="projects-grid">
                 <div class="project-card">
@@ -596,13 +703,12 @@
                             <span class="tech-badge">DHCP/DNS</span>
                             <span class="tech-badge">Cisco IOS</span>
                         </div>
-                        <p style="color: #c4c4d8; margin-bottom: 18px;">Designed production-grade network connecting 5 international offices using hierarchical OSPF routing with Area 0 backbone—demonstrating enterprise-scale scalability and security.</p>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Designed production-grade network connecting 5 international offices using hierarchical OSPF routing with Area 0 backbone.</p>
                         <ul>
-                            <li>Connected Boston, Mumbai, New York, London & Germany via hub-and-spoke topology</li>
                             <li>6-area OSPF implementation with Area 0 backbone + 5 standard areas</li>
-                            <li>Finance department isolation using extended ACLs (inbound blocked, outbound allowed)</li>
-                            <li>Automated IP management with DHCP/DNS across 24 end devices</li>
-                            <li>Achieved 100% test success rate across 40+ verification tests</li>
+                            <li>Finance department isolation using extended ACLs</li>
+                            <li>Automated IP management with DHCP/DNS across 24 devices</li>
+                            <li>100% test success rate across 40+ verification tests</li>
                         </ul>
                         <a href="dynamic-routing-project.html" class="view-button">EXPLORE PROJECT →</a>
                     </div>
@@ -622,13 +728,11 @@
                             <span class="tech-badge">LACP</span>
                             <span class="tech-badge">Rapid PVST+</span>
                         </div>
-                        <p style="color: #c4c4d8; margin-bottom: 18px;">Implemented enterprise-grade security with multiple defense layers—MAC flooding protection, encrypted management, and link aggregation for maximum network resilience.</p>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Enterprise-grade security with MAC flooding protection, encrypted management, and link aggregation.</p>
                         <ul>
                             <li>Replaced Telnet with SSH v2 using RSA 1024-bit encryption</li>
-                            <li>Deployed port security with max 2 MACs per port—restrict mode for attack mitigation</li>
-                            <li>Configured EtherChannel with LACP for 2 Gbps aggregate bandwidth + automatic failover</li>
-                            <li>Implemented Rapid PVST+ with PortFast and BPDU Guard for loop-free topology</li>
-                            <li>Enforced cross-office security policies with extended ACLs</li>
+                            <li>Configured EtherChannel with LACP for 2 Gbps aggregate bandwidth</li>
+                            <li>Implemented Rapid PVST+ with PortFast and BPDU Guard</li>
                         </ul>
                         <a href="security-optimization-project.html" class="view-button">EXPLORE PROJECT →</a>
                     </div>
@@ -648,13 +752,11 @@
                             <span class="tech-badge">iptables</span>
                             <span class="tech-badge">IPv4/IPv6</span>
                         </div>
-                        <p style="color: #c4c4d8; margin-bottom: 18px;">Built complete network infrastructure for Boston startup using Linux services—demonstrating real-world systems administration and automation skills.</p>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Complete network infrastructure for Boston startup using Linux services.</p>
                         <ul>
-                            <li>Configured BIND9 DNS with master-slave replication and dual-stack IPv4/IPv6</li>
-                            <li>Implemented DHCP with dynamic allocation, exclusion ranges, and MAC reservations</li>
-                            <li>Deployed Apache2 web server with virtual hosts and security hardening</li>
-                            <li>Created iptables firewall rules with protocol filtering and IP blocking</li>
-                            <li>Automated backup system with compression and remote transfer via SCP</li>
+                            <li>BIND9 DNS with master-slave replication and dual-stack IPv4/IPv6</li>
+                            <li>Apache2 web server with iptables firewall protection</li>
+                            <li>Automated backup system with SCP transfer</li>
                         </ul>
                         <a href="linux-infrastructure-project.html" class="view-button">EXPLORE PROJECT →</a>
                     </div>
@@ -671,16 +773,13 @@
                             <span class="tech-badge">SONET/SDH</span>
                             <span class="tech-badge">OTN</span>
                             <span class="tech-badge">Ring Topology</span>
-                            <span class="tech-badge">Protection Switching</span>
                             <span class="tech-badge">GMP</span>
                         </div>
-                        <p style="color: #c4c4d8; margin-bottom: 18px;">Designed optical transport networks with SONET rings and OTN multiplexing—applying telecom infrastructure knowledge to high-speed data transmission.</p>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Optical transport networks with SONET rings and OTN multiplexing.</p>
                         <ul>
-                            <li>Designed BLSR/UPSR ring topologies with drop-and-continue routing</li>
-                            <li>Calculated OTN frame structures and line rates for ODU2/3/4</li>
-                            <li>Implemented GMP stuffing for client rate adaptation</li>
-                            <li>Analyzed protection switching scenarios and traffic rerouting</li>
-                            <li>Optimized tributary slot allocation for 1GbE, 10GbE, and 22Gbps clients</li>
+                            <li>BLSR/UPSR ring topologies with protection switching</li>
+                            <li>OTN frame structures and GMP stuffing calculations</li>
+                            <li>Tributary slot optimization for high-speed clients</li>
                         </ul>
                         <a href="sonet-otn-project.html" class="view-button">EXPLORE PROJECT →</a>
                     </div>
@@ -697,14 +796,10 @@
                             <span class="tech-badge">VLSM</span>
                             <span class="tech-badge">Static Routing</span>
                             <span class="tech-badge">Subnetting</span>
-                            <span class="tech-badge">Class C</span>
                         </div>
-                        <p style="color: #c4c4d8; margin-bottom: 18px;">Efficiently subneted Class C network for robotics company with 6 departments using Variable Length Subnet Masking.</p>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Efficient Class C network subnetting for 6 departments using VLSM.</p>
                         <ul>
-                            <li>Allocated /26 and /27 subnets for departments with 16-34 hosts</li>
                             <li>Achieved 87.5% address utilization with minimal waste</li>
-                            <li>Implemented static routing for predictable traffic paths</li>
-                            <li>Reserved 13% address space for future growth</li>
                             <li>Zero IP conflicts through careful boundary planning</li>
                         </ul>
                         <a href="static-routing-project.html" class="view-button">EXPLORE PROJECT →</a>
@@ -716,36 +811,44 @@
                 <h2>🛠️ TECHNICAL ARSENAL</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
+                        <h3>Research & Development</h3>
+                        <ul>
+                            <li>XR network performance analysis</li>
+                            <li>Python tool development</li>
+                            <li>Wireshark packet analysis</li>
+                            <li>WiFi spectrum analysis</li>
+                            <li>Quest 3 VR testing</li>
+                            <li>AI-powered data interpretation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
                         <h3>Routing & Switching</h3>
                         <ul>
-                            <li>Multi-area OSPF design & troubleshooting</li>
-                            <li>Area Border Router (ABR) configuration</li>
-                            <li>802.1Q VLAN trunking & inter-VLAN routing</li>
-                            <li>Router-on-a-stick implementation</li>
-                            <li>Rapid PVST+ spanning tree protocol</li>
-                            <li>EtherChannel/LACP link aggregation</li>
+                            <li>Multi-area OSPF configuration</li>
+                            <li>802.1Q VLAN trunking</li>
+                            <li>Router-on-a-stick design</li>
+                            <li>Rapid PVST+ spanning tree</li>
+                            <li>EtherChannel/LACP aggregation</li>
                         </ul>
                     </div>
                     <div class="skill-category">
                         <h3>Network Security</h3>
                         <ul>
                             <li>Extended ACL architecture</li>
-                            <li>Port security & MAC address filtering</li>
+                            <li>Port security & MAC filtering</li>
                             <li>SSH v2 secure management</li>
+                            <li>iptables firewall configuration</li>
                             <li>Security policy enforcement</li>
-                            <li>Firewall design (iptables/UFW)</li>
-                            <li>Attack surface mitigation</li>
                         </ul>
                     </div>
                     <div class="skill-category">
                         <h3>Network Services</h3>
                         <ul>
-                            <li>BIND9 DNS master-slave replication</li>
-                            <li>ISC DHCP server deployment</li>
-                            <li>Apache2 web server configuration</li>
-                            <li>VLSM subnetting strategy</li>
-                            <li>IPv4/IPv6 dual-stack implementation</li>
-                            <li>Network automation & scripting</li>
+                            <li>BIND9 DNS master-slave</li>
+                            <li>ISC DHCP deployment</li>
+                            <li>Apache2 web server</li>
+                            <li>IPv4/IPv6 dual-stack</li>
+                            <li>Network automation</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -753,32 +856,19 @@
                         <ul>
                             <li>SONET/SDH ring design</li>
                             <li>OTN multiplexing & GMP</li>
-                            <li>Submarine fiber cable deployment</li>
-                            <li>$102M+ project financing coordination</li>
+                            <li>Submarine cable deployment</li>
+                            <li>$102M+ project financing</li>
                             <li>International team leadership</li>
-                            <li>Bathymetric survey operations</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Research & Analysis</h3>
-                        <ul>
-                            <li>XR network performance analysis</li>
-                            <li>Quest 3 VR headset testing</li>
-                            <li>GlitchWitch tool proficiency</li>
-                            <li>Technical documentation</li>
-                            <li>Data-driven decision making</li>
-                            <li>Emerging technology evaluation</li>
                         </ul>
                     </div>
                     <div class="skill-category">
                         <h3>Tools & Platforms</h3>
                         <ul>
+                            <li>Python (pandas, matplotlib)</li>
+                            <li>Wireshark & tcpdump</li>
                             <li>Cisco Packet Tracer</li>
                             <li>Linux (Ubuntu/Debian)</li>
-                            <li>Cisco IOS CLI</li>
-                            <li>VirtualBox/VMware</li>
                             <li>Git/GitHub</li>
-                            <li>Network monitoring tools</li>
                         </ul>
                     </div>
                 </div>
@@ -788,7 +878,7 @@
         <footer>
             <h3>GRACE WANJIRU IRUNGU</h3>
             <p><strong>MS Telecommunication Networks | Northeastern University</strong></p>
-            <p>XR Immersive Media Lab Research Assistant</p>
+            <p>Research Assistant, XR Immersive Media Lab</p>
             <p>Expected Graduation: June 2027</p>
             <p style="margin-top: 20px;">
                 <a href="mailto:irungu.gr@northeastern.edu">irungu.gr@northeastern.edu</a>
@@ -799,7 +889,7 @@
                 <a href="mailto:irungu.gr@northeastern.edu" title="Email">✉️</a>
             </div>
             <p style="margin-top: 28px; font-size: 0.95em; opacity: 0.75;">
-                From Kenya to Boston | From Cables to AI | The Journey Continues
+                From Kenya to Boston | From Infrastructure to Emerging Tech | Researching the Future of Communication
             </p>
         </footer>
     </div>
