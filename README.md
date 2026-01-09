@@ -13,7 +13,7 @@ Enterprise-grade network infrastructure projects showcasing advanced routing, se
 
 With **7+ years** of telecommunications infrastructure experience in East Africa—including submarine cable deployments and **$102M+** in project financing—I'm now transitioning to advanced network engineering and AI/ML research at Northeastern University.
 
-**Current Focus:** MS in Telecommunication Networks | XR Immersive Media Lab Research Assistant
+**Current Focus:** MS in Telecommunication Networks | Researcher
 
 ---
 
