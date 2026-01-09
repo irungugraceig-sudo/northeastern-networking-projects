@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONET & OTN Design | Grace Wanjiru Irungu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #050510;
+            color: #d4d4e8;
+            line-height: 1.7;
+        }
+        
+        .stars-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 85% 75%, rgba(255,255,255,0.3), transparent);
+            background-size: 400% 400%;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: rgba(10, 10, 20, 0.92);
+            border-radius: 20px;
+            border: 1px solid rgba(88, 28, 135, 0.3);
+            box-shadow: 0 0 40px rgba(88, 28, 135, 0.2);
+        }
+        
+        header {
+            background: linear-gradient(135deg, rgba(59, 7, 100, 0.95) 0%, rgba(88, 28, 135, 0.95) 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d4c5e8;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            text-shadow: 0 0 10px rgba(88, 28, 135, 0.5);
+        }
+        
+        h3 {
+            color: #b4a5d8;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin: 15px 0;
+            color: #c4c4d8;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 15, 30, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(88, 28, 135, 0.3);
+        }
+        
+        th {
+            background: rgba(88, 28, 135, 0.3);
+            color: #d4c5e8;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: rgba(88, 28, 135, 0.1);
+        }
+        
+        .info-box {
+            background: rgba(59, 7, 100, 0.2);
+            border-left: 4px solid #9333ea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .calculation-box {
+            background: rgba(15, 15, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid rgba(88, 28, 135, 0.4);
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            color: #c4c4d8;
+        }
+        
+        .highlight {
+            color: #a855f7;
+            font-weight: 600;
+        }
+        
+        .ring-diagram {
+            background: rgba(15, 15, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            color: #68d391;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        footer {
+            background: rgba(10, 10, 18, 0.98);
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(88, 28, 135, 0.4);
+        }
+        
+        footer a {
+            color: #9333ea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1>📡 SONET & OTN Network Design</h1>
+            <p class="subtitle">Optical Transport Network Architecture & Ring Protection</p>
+            <div class="tech-badges">
+                <span class="badge">SONET/SDH</span>
+                <span class="badge">OTN Multiplexing</span>
+                <span class="badge">BLSR/UPSR</span>
+                <span class="badge">GMP Stuffing</span>
+                <span class="badge">Ring Topology</span>
+            </div>
+        </header>
+        
+        <div class="content">
+            <h2>📋 Project Overview</h2>
+            <p>Designed optical transport networks using SONET (Synchronous Optical Network) and OTN (Optical Transport Network) technologies. Implemented ring topologies with protection switching mechanisms, calculated frame structures and line rates, and optimized tributary slot allocation for various client signals.</p>
+            
+            <div class="info-box">
+                <strong>🎯 Objective:</strong> Apply telecommunications infrastructure knowledge to high-capacity optical networks, demonstrating understanding of hierarchical multiplexing, protection switching, and efficient bandwidth utilization for submarine and terrestrial fiber systems.
+            </div>
+
+            <h2>🔄 SONET Ring Topology Design</h2>
+            
+            <h3>Bidirectional Line-Switched Ring (BLSR)</h3>
+            <p>Designed 7-node BLSR with drop-and-continue routing for traffic optimization and 1+1 protection switching for fault tolerance.</p>
+            
+            <div class="ring-diagram">
+        A ----- B ----- C
+        |               |
+        G               D
+        |               |
+        F ----- E -------+
+            </div>
+
+            <table>
+                <tr>
+                    <th>Ring Type</th>
+                    <th>Protection</th>
+                    <th>Bandwidth Use</th>
+                    <th>Use Case</th>
+                </tr>
+                <tr>
+                    <td>BLSR (4-fiber)</td>
+                    <td>Line switching</td>
+                    <td>50% working, 50% protection</td>
+                    <td>Metropolitan networks</td>
+                </tr>
+                <tr>
+                    <td>BLSR (2-fiber)</td>
+                    <td>Line switching</td>
+                    <td>Shared working/protection</td>
+                    <td>Cost-sensitive deployments</td>
+                </tr>
+                <tr>
+                    <td>UPSR</td>
+                    <td>Path switching</td>
+                    <td>Dual transmission</td>
+                    <td>Point-to-point critical services</td>
+                </tr>
+            </table>
+
+            <h3>Protection Switching Analysis</h3>
+            <div class="info-box">
+                <strong>Scenario:</strong> Link failure between Node C and Node D<br><br>
+                <strong>BLSR Response:</strong><br>
+                • Traffic automatically reroutes through opposite direction<br>
+                • 50ms switching time (meets carrier requirements)<br>
+                • Maximum load redistributed across remaining working capacity<br><br>
+                <strong>Calculated Results:</strong><br>
+                • UPSR max load after failure: 25 STS-1s<br>
+                • BLSR/2 max load after failure: 16 STS-1s<br>
+                • Minimum capacity requirement: STS-48 (UPSR), STS-24 (BLSR/2)
+            </div>
+
+            <h2>📊 OTN Frame Structure & Multiplexing</h2>
+            
+            <h3>OTN Hierarchy</h3>
+            <table>
+                <tr>
+                    <th>Signal Level</th>
+                    <th>Bit Rate</th>
+                    <th>Payload</th>
+                    <th>Typical Use</th>
+                </tr>
+                <tr>
+                    <td>ODU0</td>
+                    <td>1.244 Gbps</td>
+                    <td>1 GbE</td>
+                    <td>Gigabit Ethernet transport</td>
+                </tr>
+                <tr>
+                    <td>ODU1</td>
+                    <td>2.498 Gbps</td>
+                    <td>OC-48/STM-16</td>
+                    <td>SONET/SDH transport</td>
+                </tr>
+                <tr>
+                    <td>ODU2</td>
+                    <td>10.037 Gbps</td>
+                    <td>10 GbE</td>
+                    <td>10 Gigabit Ethernet</td>
+                </tr>
+                <tr>
+                    <td>ODU3</td>
+                    <td>40.319 Gbps</td>
+                    <td>OC-768/STM-256</td>
+                    <td>High-capacity backbone</td>
+                </tr>
+                <tr>
+                    <td>ODU4</td>
+                    <td>104.794 Gbps</td>
+                    <td>100 GbE</td>
+                    <td>100 Gigabit Ethernet</td>
+                </tr>
+            </table>
+
+            <h3>OPU3 Frame Structure Analysis</h3>
+            <p>Calculated tributary slot allocation for 22 Gbps client signal:</p>
+            
+            <div class="calculation-box">
+<strong>OPU3 Specifications:</strong>
+- Total payload: 4 rows × 3,824 columns = 15,296 bytes
+- Total tributary slots (TS): 16
+- Bytes per TS: 15,296 ÷ 16 = 956 bytes
+- Columns per TS: 3,824 ÷ 16 = 239 columns
+
+<strong>22 Gbps Client Mapping:</strong>
+- Client rate: 22 Gbps
+- TS capacity: 2.3621 Gbps each
+- Required TSs: 22 ÷ 2.3621 = 9.31 → <span class="highlight">10 TSs needed</span>
+
+<strong>Total allocated capacity:</strong>
+10 TSs × 2.3621 Gbps = 23.621 Gbps
+Overhead: 1.621 Gbps (for GMP stuffing)
+            </div>
+
+            <h2>🔧 Generic Mapping Procedure (GMP)</h2>
+            
+            <h3>GMP Stuffing Calculation</h3>
+            <p>GMP enables efficient transport of client signals that don't align perfectly with OTN tributary slot rates. For the 22 Gbps client in 10 OPU3 TSs:</p>
+            
+            <div class="calculation-box">
+<strong>Stuffing Analysis:</strong>
+Available capacity: 23.621 Gbps
+Client rate: 22.000 Gbps
+Excess capacity: 1.621 Gbps
+
+<strong>Per-frame stuffing:</strong>
+Frame duration: 3.238 μs
+Client bits per frame: 71,236 bits
+Available TS bits per frame: 76,480 bits
+Stuff bits per frame: 5,244 bits
+
+<strong>Stuffing ratio:</strong>
+5,244 ÷ 76,480 = 6.86% overhead
+            </div>
+
+            <h3>Why GMP Matters</h3>
+            <ul>
+                <li><strong>Flexibility:</strong> Supports non-standard client rates without dedicated containers</li>
+                <li><strong>Efficiency:</strong> Minimizes bandwidth waste through dynamic bit stuffing</li>
+                <li><strong>Standards:</strong> Enables transport of emerging high-speed interfaces (25G, 50G, 400G)</li>
+                <li><strong>Cost-effective:</strong> Single OTN infrastructure handles multiple client types</li>
+            </ul>
+
+            <h2>🌊 Real-World Application: Submarine Cable Systems</h2>
+            
+            <div class="info-box">
+                <strong>Context from My Experience:</strong> During submarine cable deployments across East Africa, understanding OTN multiplexing was critical for:
+                <ul style="margin-top: 10px;">
+                    <li>Optimizing bandwidth allocation across international links</li>
+                    <li>Planning protection switching for undersea fiber cuts</li>
+                    <li>Calculating tributary slot requirements for growing traffic demands</li>
+                    <li>Coordinating with vendors on DWDM and OTN equipment specifications</li>
+                </ul>
+            </div>
+
+            <h3>Protection in Submarine Systems</h3>
+            <p>Applied BLSR/UPSR concepts to submarine cable protection strategies:</p>
+            <ul>
+                <li><strong>Geographic diversity:</strong> Multiple landing points for ring closure</li>
+                <li><strong>Automatic protection switching:</strong> Sub-60ms failover for critical services</li>
+                <li><strong>Capacity planning:</strong> 1+1 protection doubles fiber requirements but ensures resilience</li>
+                <li><strong>Multi-vendor interoperability:</strong> OTN standards enable seamless integration</li>
+            </ul>
+
+            <h2>📈 Traffic Flow Optimization</h2>
+            
+            <h3>7-Node Ring Traffic Matrix</h3>
+            <p>Analyzed optimal routing for bidirectional ring with traffic demands in 1.25G TS units. Calculated shortest paths using hop count minimization and distributed load across ring segments.</p>
+
+            <div class="info-box">
+                <strong>Maximum Link Utilization:</strong> Link C-D carries maximum 16 TSs under normal conditions. After C-D failure, traffic reroutes increasing link E-F to 12 TSs. Minimum ODU2 required for resilient operation.
+            </div>
+
+            <h2>🎯 Key Concepts Mastered</h2>
+            
+            <h3>SONET/SDH Principles</h3>
+            <ul>
+                <li>Synchronous multiplexing hierarchy (STS-1, STS-3, STS-48, etc.)</li>
+                <li>VT (Virtual Tributary) structures for sub-STS-1 payloads</li>
+                <li>Path, line, and section overhead functions</li>
+                <li>BLSR vs UPSR protection mechanisms and trade-offs</li>
+                <li>Drop-and-continue routing for bandwidth efficiency</li>
+            </ul>
+
+            <h3>OTN Architecture</h3>
+            <ul>
+                <li>ODUk signal hierarchy and multiplexing ratios</li>
+                <li>OPU payload structure and tributary slot organization</li>
+                <li>Generic Mapping Procedure (GMP) for client adaptation</li>
+                <li>Forward Error Correction (FEC) overhead calculation</li>
+                <li>OTN frame structure (4 rows × 4,080 columns)</li>
+            </ul>
+
+            <h3>Network Design Skills</h3>
+            <ul>
+                <li>Ring topology optimization for minimal hop count</li>
+                <li>Protection bandwidth allocation strategies</li>
+                <li>Failure scenario analysis and rerouting calculations</li>
+                <li>Capacity planning for current and future traffic growth</li>
+                <li>Cost-benefit analysis of protection schemes</li>
+            </ul>
+
+            <h2>✅ Project Outcomes</h2>
+            <div class="info-box">
+                <strong>Achievements:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>✓ Designed resilient 7-node BLSR with optimal traffic routing</li>
+                    <li>✓ Calculated precise OTN frame structures and tributary slot allocations</li>
+                    <li>✓ Analyzed protection switching scenarios with quantitative results</li>
+                    <li>✓ Applied GMP for efficient 22 Gbps client transport</li>
+                    <li>✓ Connected telecom theory to real-world submarine cable experience</li>
+                </ul>
+            </div>
+
+            <h2>🔗 Connection to Infrastructure Experience</h2>
+            <p>This academic work directly builds upon my 7 years managing submarine fiber cable deployments across Africa. Understanding SONET/OTN architectures was essential for:</p>
+            <ul>
+                <li><strong>Lake Tanganyika Survey:</strong> Planning fiber routes for optimal ring topology</li>
+                <li><strong>Capacity Planning:</strong> Calculating OTN tributary slots for growing demand</li>
+                <li><strong>Vendor Coordination:</strong> Specifying DWDM and OTN equipment with protection</li>
+                <li><strong>Project Financing:</strong> Justifying $102M+ investments with technical analysis</li>
+                <li><strong>International Teams:</strong> Leading technical discussions across 10+ countries</li>
+            </ul>
+
+            <h2>🎓 Skills Demonstrated</h2>
+            <ul>
+                <li>Optical network architecture and design</li>
+                <li>SONET/SDH multiplexing hierarchy</li>
+                <li>OTN frame structure and tributary slots</li>
+                <li>Protection switching mechanisms (BLSR/UPSR)</li>
+                <li>GMP stuffing calculations</li>
+                <li>Ring topology optimization</li>
+                <li>Bandwidth allocation strategies</li>
+                <li>Failure analysis and resilience planning</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p><strong>Grace Wanjiru Irungu</strong> | MS Telecommunication Networks</p>
+            <p>Northeastern University | <a href="mailto:irungu.gr@northeastern.edu">irungu.gr@northeastern.edu</a></p>
+            <p style="margin-top: 15px;"><a href="index.html">← Back to Portfolio</a></p>
+        </footer>
+    </div>
+</body>
+</html>

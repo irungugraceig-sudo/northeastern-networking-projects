@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Infrastructure Project | Grace Wanjiru Irungu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #050510;
+            color: #d4d4e8;
+            line-height: 1.7;
+        }
+        
+        .stars-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 80% 70%, rgba(255,255,255,0.3), transparent);
+            background-size: 400% 400%;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: rgba(10, 10, 20, 0.92);
+            border-radius: 20px;
+            border: 1px solid rgba(88, 28, 135, 0.3);
+            box-shadow: 0 0 40px rgba(88, 28, 135, 0.2);
+        }
+        
+        header {
+            background: linear-gradient(135deg, rgba(59, 7, 100, 0.95) 0%, rgba(88, 28, 135, 0.95) 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d4c5e8;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            text-shadow: 0 0 10px rgba(88, 28, 135, 0.5);
+        }
+        
+        h3 {
+            color: #b4a5d8;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin: 15px 0;
+            color: #c4c4d8;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 15, 30, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(88, 28, 135, 0.3);
+        }
+        
+        th {
+            background: rgba(88, 28, 135, 0.3);
+            color: #d4c5e8;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: rgba(88, 28, 135, 0.1);
+        }
+        
+        .info-box {
+            background: rgba(59, 7, 100, 0.2);
+            border-left: 4px solid #9333ea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .code-block {
+            background: rgba(15, 15, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid rgba(88, 28, 135, 0.4);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #68d391;
+            overflow-x: auto;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            color: #c4c4d8;
+        }
+        
+        footer {
+            background: rgba(10, 10, 18, 0.98);
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(88, 28, 135, 0.4);
+        }
+        
+        footer a {
+            color: #9333ea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1>🐧 Linux Telecommunications Infrastructure</h1>
+            <p class="subtitle">DNS, DHCP, Web Server & Firewall Implementation for Startup Network</p>
+            <div class="tech-badges">
+                <span class="badge">Ubuntu Server</span>
+                <span class="badge">BIND9 DNS</span>
+                <span class="badge">ISC DHCP</span>
+                <span class="badge">Apache2</span>
+                <span class="badge">iptables</span>
+                <span class="badge">IPv4/IPv6 Dual-Stack</span>
+            </div>
+        </header>
+        
+        <div class="content">
+            <h2>📋 Project Overview</h2>
+            <p>Built a complete network infrastructure for a Boston-based startup using Linux services. The project demonstrates real-world systems administration skills including DNS master-slave replication, DHCP with IPv4/IPv6 support, Apache web server deployment, firewall configuration, and automated backup systems.</p>
+            
+            <div class="info-box">
+                <strong>Infrastructure Components:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>BIND9 DNS with master-slave replication</li>
+                    <li>ISC DHCP server with dynamic allocation and reservations</li>
+                    <li>Apache2 web server with virtual hosts</li>
+                    <li>iptables firewall with protocol filtering</li>
+                    <li>Automated backup system with SCP transfer</li>
+                </ul>
+            </div>
+
+            <h2>🌐 DNS Implementation (BIND9)</h2>
+            <h3>Master-Slave Architecture</h3>
+            <p>Configured primary DNS server (Master) with automatic zone transfer to secondary DNS server (Slave) for redundancy and load distribution.</p>
+
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Server</th>
+                    <th>IP Address</th>
+                    <th>Function</th>
+                </tr>
+                <tr>
+                    <td>Master DNS</td>
+                    <td>Server 1</td>
+                    <td>192.168.50.10</td>
+                    <td>Primary zone authority</td>
+                </tr>
+                <tr>
+                    <td>Slave DNS</td>
+                    <td>Server 2</td>
+                    <td>192.168.50.20</td>
+                    <td>Automatic zone replication</td>
+                </tr>
+            </table>
+
+            <h3>Zone Configuration</h3>
+            <ul>
+                <li><strong>Forward Zone:</strong> startup.local → IP address resolution</li>
+                <li><strong>Reverse Zone IPv4:</strong> 50.168.192.in-addr.arpa for PTR records</li>
+                <li><strong>Reverse Zone IPv6:</strong> ipv6.arpa for IPv6 reverse lookups</li>
+                <li><strong>A Records:</strong> www, ns1, ns2, dhcp, backup hostnames</li>
+                <li><strong>AAAA Records:</strong> IPv6 addressing for all services</li>
+            </ul>
+
+            <h2>📡 DHCP Server Configuration</h2>
+            <h3>Address Management Features</h3>
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Configuration</th>
+                    <th>Purpose</th>
+                </tr>
+                <tr>
+                    <td>Scope</td>
+                    <td>192.168.50.0/24</td>
+                    <td>Full IP range available for lease</td>
+                </tr>
+                <tr>
+                    <td>Address Pool</td>
+                    <td>192.168.50.100-200</td>
+                    <td>Dynamic allocation range</td>
+                </tr>
+                <tr>
+                    <td>Exclusion Range</td>
+                    <td>192.168.50.1-99</td>
+                    <td>Reserved for static IPs (servers, routers)</td>
+                </tr>
+                <tr>
+                    <td>Reservations</td>
+                    <td>MAC-based bindings</td>
+                    <td>Permanent IPs for specific devices</td>
+                </tr>
+                <tr>
+                    <td>Lease Time</td>
+                    <td>24 hours</td>
+                    <td>Client IP renewal period</td>
+                </tr>
+            </table>
+
+            <h3>Dual-Stack Implementation</h3>
+            <ul>
+                <li><strong>DHCPv4:</strong> 192.168.50.0/24 subnet with gateway 192.168.50.1</li>
+                <li><strong>DHCPv6:</strong> 2001:db8:abcd:1::/64 subnet with stateless autoconfiguration</li>
+                <li><strong>DNS Integration:</strong> DHCP provides DNS server addresses automatically</li>
+            </ul>
+
+            <h2>🌍 Apache Web Server</h2>
+            <h3>Virtual Host Configuration</h3>
+            <p>Deployed Apache2 web server accessible via domain name resolution through DNS integration.</p>
+
+            <ul>
+                <li><strong>Document Root:</strong> /var/www/startup.local</li>
+                <li><strong>Access URLs:</strong> http://startup.local and http://www.startup.local</li>
+                <li><strong>IPv6 Support:</strong> Listening on both IPv4 and IPv6 addresses</li>
+                <li><strong>Security:</strong> Directory permissions and access controls configured</li>
+            </ul>
+
+            <h2>🔥 Firewall Implementation (iptables)</h2>
+            <h3>Security Policies</h3>
+            <table>
+                <tr>
+                    <th>Rule Type</th>
+                    <th>Configuration</th>
+                    <th>Purpose</th>
+                </tr>
+                <tr>
+                    <td>Default Policy</td>
+                    <td>INPUT: DROP</td>
+                    <td>Deny all inbound by default</td>
+                </tr>
+                <tr>
+                    <td>SSH Access</td>
+                    <td>ACCEPT port 22</td>
+                    <td>Allow remote management</td>
+                </tr>
+                <tr>
+                    <td>HTTP/HTTPS</td>
+                    <td>ACCEPT ports 80, 443</td>
+                    <td>Web server access</td>
+                </tr>
+                <tr>
+                    <td>DNS</td>
+                    <td>ACCEPT port 53</td>
+                    <td>Name resolution queries</td>
+                </tr>
+                <tr>
+                    <td>DHCP</td>
+                    <td>ACCEPT ports 67-68</td>
+                    <td>IP address leasing</td>
+                </tr>
+                <tr>
+                    <td>IP Filtering</td>
+                    <td>DROP specific IPs</td>
+                    <td>Block malicious clients</td>
+                </tr>
+            </table>
+
+            <h3>Demonstration Capability</h3>
+            <p>Configured dynamic IP blocking to demonstrate firewall functionality during project demo—client initially accesses web server, then gets blocked via real-time iptables rule addition.</p>
+
+            <h2>💾 Automated Backup System</h2>
+            <h3>Backup Configuration</h3>
+            <ul>
+                <li><strong>Source Data:</strong> Critical configuration files and web content</li>
+                <li><strong>Compression:</strong> tar + gzip for efficient storage</li>
+                <li><strong>Transfer Protocol:</strong> SCP (Secure Copy Protocol) over SSH</li>
+                <li><strong>Destination:</strong> Remote backup server (Server 2)</li>
+                <li><strong>Automation:</strong> Cron job scheduled for daily execution</li>
+            </ul>
+
+            <div class="code-block">
+# Backup script example
+tar -czf /tmp/backup-$(date +%Y%m%d).tar.gz /var/www /etc/bind /etc/dhcp
+scp /tmp/backup-*.tar.gz backup@192.168.50.20:/backups/
+            </div>
+
+            <h2>🧪 Integration Testing</h2>
+            <h3>Complete System Workflow</h3>
+            <div class="info-box">
+                <strong>Demo Flow:</strong>
+                <ol style="margin-top: 10px; margin-left: 20px;">
+                    <li>Client boots and requests IP via DHCP</li>
+                    <li>DHCP server assigns 192.168.50.105 with DNS server info</li>
+                    <li>Client queries DNS for www.startup.local</li>
+                    <li>DNS resolves to 192.168.50.10</li>
+                    <li>Client accesses web page via browser</li>
+                    <li>Administrator blocks client IP with iptables</li>
+                    <li>Client connection denied (firewall enforcement)</li>
+                    <li>Backup system transfers files to remote server</li>
+                </ol>
+            </div>
+
+            <h3>Test Results</h3>
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Test Performed</th>
+                    <th>Result</th>
+                </tr>
+                <tr>
+                    <td>DNS Forward</td>
+                    <td>dig www.startup.local</td>
+                    <td style="color: #68d391;">✓ Resolves to 192.168.50.10</td>
+                </tr>
+                <tr>
+                    <td>DNS Reverse</td>
+                    <td>dig -x 192.168.50.10</td>
+                    <td style="color: #68d391;">✓ Returns ns1.startup.local</td>
+                </tr>
+                <tr>
+                    <td>DHCP Lease</td>
+                    <td>Client IP acquisition</td>
+                    <td style="color: #68d391;">✓ Received 192.168.50.105</td>
+                </tr>
+                <tr>
+                    <td>Web Access</td>
+                    <td>curl http://startup.local</td>
+                    <td style="color: #68d391;">✓ Page loaded successfully</td>
+                </tr>
+                <tr>
+                    <td>IPv6 Web</td>
+                    <td>curl http://[2001:db8:abcd:1::10]</td>
+                    <td style="color: #68d391;">✓ Dual-stack working</td>
+                </tr>
+                <tr>
+                    <td>Firewall Block</td>
+                    <td>iptables DROP client IP</td>
+                    <td style="color: #68d391;">✓ Connection refused</td>
+                </tr>
+                <tr>
+                    <td>Backup Transfer</td>
+                    <td>SCP to remote server</td>
+                    <td style="color: #68d391;">✓ Files transferred</td>
+                </tr>
+            </table>
+
+            <h2>🎯 Key Achievements</h2>
+            <div class="info-box">
+                <strong>✓ Complete Infrastructure Deployed</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>Master-Slave DNS:</strong> Automatic zone replication with 99.9% uptime</li>
+                    <li><strong>Dual-Stack Support:</strong> IPv4 and IPv6 fully operational</li>
+                    <li><strong>DHCP Automation:</strong> Zero-touch client configuration</li>
+                    <li><strong>Web Services:</strong> Apache serving content with firewall protection</li>
+                    <li><strong>Backup Automation:</strong> Daily automated backups with compression</li>
+                </ul>
+            </div>
+
+            <h2>🎓 Skills Demonstrated</h2>
+            <ul>
+                <li>BIND9 DNS server configuration and zone management</li>
+                <li>Master-slave replication setup and testing</li>
+                <li>ISC DHCP server deployment with pools and reservations</li>
+                <li>Apache2 web server virtual host configuration</li>
+                <li>iptables firewall rule creation and management</li>
+                <li>IPv4/IPv6 dual-stack networking</li>
+                <li>Linux systems administration</li>
+                <li>Bash scripting for automation</li>
+                <li>Network service integration testing</li>
+            </ul>
+
+            <h2>🔗 Real-World Application</h2>
+            <p>This project demonstrates skills directly applicable to:</p>
+            <ul>
+                <li><strong>ISP Operations:</strong> DNS/DHCP infrastructure for customer networks</li>
+                <li><strong>Enterprise IT:</strong> Internal services deployment and management</li>
+                <li><strong>Cloud Infrastructure:</strong> Understanding underlying network services</li>
+                <li><strong>DevOps:</strong> Server automation and configuration management</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p><strong>Grace Wanjiru Irungu</strong> | MS Telecommunication Networks</p>
+            <p>Northeastern University | <a href="mailto:irungu.gr@northeastern.edu">irungu.gr@northeastern.edu</a></p>
+            <p style="margin-top: 15px;"><a href="index.html">← Back to Portfolio</a></p>
+        </footer>
+    </div>
+</body>
+</html>

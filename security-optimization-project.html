@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Security & Optimization | Grace Wanjiru Irungu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #050510;
+            color: #d4d4e8;
+            line-height: 1.7;
+        }
+        
+        .stars-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 80% 70%, rgba(255,255,255,0.3), transparent);
+            background-size: 400% 400%;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: rgba(10, 10, 20, 0.92);
+            border-radius: 20px;
+            border: 1px solid rgba(88, 28, 135, 0.3);
+            box-shadow: 0 0 40px rgba(88, 28, 135, 0.2);
+        }
+        
+        header {
+            background: linear-gradient(135deg, rgba(59, 7, 100, 0.95) 0%, rgba(88, 28, 135, 0.95) 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d4c5e8;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            text-shadow: 0 0 10px rgba(88, 28, 135, 0.5);
+        }
+        
+        h3 {
+            color: #b4a5d8;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin: 15px 0;
+            color: #c4c4d8;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 15, 30, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(88, 28, 135, 0.3);
+        }
+        
+        th {
+            background: rgba(88, 28, 135, 0.3);
+            color: #d4c5e8;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: rgba(88, 28, 135, 0.1);
+        }
+        
+        .info-box {
+            background: rgba(59, 7, 100, 0.2);
+            border-left: 4px solid #9333ea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            color: #c4c4d8;
+        }
+        
+        .highlight {
+            color: #a855f7;
+            font-weight: 600;
+        }
+        
+        footer {
+            background: rgba(10, 10, 18, 0.98);
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(88, 28, 135, 0.4);
+        }
+        
+        footer a {
+            color: #9333ea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1>🛡️ Advanced Security & Optimization</h1>
+            <p class="subtitle">Defense-in-Depth Network Protection</p>
+            <div class="tech-badges">
+                <span class="badge">SSH v2 Encryption</span>
+                <span class="badge">Port Security</span>
+                <span class="badge">EtherChannel/LACP</span>
+                <span class="badge">Rapid PVST+</span>
+                <span class="badge">BPDU Guard</span>
+            </div>
+        </header>
+        
+        <div class="content">
+            <h2>📋 Project Overview</h2>
+            <p>Implemented comprehensive security hardening and network optimization across enterprise infrastructure. Building on the multi-area OSPF foundation, these enhancements add multiple layers of defense against common network attacks while optimizing bandwidth utilization and failover capabilities.</p>
+            
+            <div class="info-box">
+                <strong>Security Objectives:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>Replace insecure Telnet access with encrypted SSH v2</li>
+                    <li>Defend against MAC flooding attacks with intelligent port security</li>
+                    <li>Increase bandwidth and redundancy with link aggregation</li>
+                    <li>Prevent Layer 2 loops with optimized spanning tree</li>
+                    <li>Implement defense-in-depth security strategies</li>
+                </ul>
+            </div>
+
+            <h2>🔐 SSH v2 Secure Management</h2>
+            <h3>Why SSH Over Telnet?</h3>
+            <p>Telnet transmits all data—including passwords—in plain text, making it vulnerable to packet sniffing attacks. SSH (Secure Shell) encrypts all communication using strong cryptographic algorithms, ensuring confidentiality and integrity of management traffic.</p>
+
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Telnet</th>
+                    <th>SSH v2</th>
+                </tr>
+                <tr>
+                    <td>Encryption</td>
+                    <td style="color: #e53e3e;">❌ Plain text</td>
+                    <td style="color: #68d391;">✓ AES/3DES encrypted</td>
+                </tr>
+                <tr>
+                    <td>Authentication</td>
+                    <td style="color: #e53e3e;">❌ Password only</td>
+                    <td style="color: #68d391;">✓ Password + Public key</td>
+                </tr>
+                <tr>
+                    <td>Port</td>
+                    <td>23</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>Security</td>
+                    <td style="color: #e53e3e;">Vulnerable to sniffing</td>
+                    <td style="color: #68d391;">Industry standard</td>
+                </tr>
+            </table>
+
+            <h3>Implementation</h3>
+            <ul>
+                <li>RSA 1024-bit key generation on all 6 routers</li>
+                <li>Local username/password authentication configured</li>
+                <li>Telnet disabled on VTY lines for enhanced security</li>
+                <li>SSH timeout and retry limits configured</li>
+            </ul>
+
+            <h2>🚫 Port Security - MAC Flooding Defense</h2>
+            <h3>Understanding MAC Flooding Attacks</h3>
+            <p>In a MAC flooding attack, an attacker sends thousands of frames with different source MAC addresses to a switch. This overflows the CAM (Content Addressable Memory) table, forcing the switch into "hub mode" where it broadcasts all traffic—allowing the attacker to sniff packets destined for other devices.</p>
+
+            <div class="info-box">
+                <strong>Attack Scenario:</strong> Without port security, an attacker connected to a single switchport could flood the CAM table with 100,000+ fake MAC addresses in seconds, causing the switch to broadcast all traffic and exposing sensitive data.
+            </div>
+
+            <h3>Port Security Configuration</h3>
+            <table>
+                <tr>
+                    <th>Mode</th>
+                    <th>Action on Violation</th>
+                    <th>Port State</th>
+                    <th>Logging</th>
+                </tr>
+                <tr>
+                    <td>Protect</td>
+                    <td>Drops violating packets</td>
+                    <td>Remains up</td>
+                    <td>❌ No logging</td>
+                </tr>
+                <tr>
+                    <td><strong>Restrict</strong> ⭐</td>
+                    <td>Drops violating packets</td>
+                    <td>Remains up</td>
+                    <td>✓ Logs violations</td>
+                </tr>
+                <tr>
+                    <td>Shutdown</td>
+                    <td>Disables port (err-disabled)</td>
+                    <td>Goes down</td>
+                    <td>✓ Logs violations</td>
+                </tr>
+            </table>
+
+            <p><strong>Implementation:</strong> All access ports configured with maximum 2 MAC addresses per port using <span class="highlight">restrict mode</span>, providing security with availability and logging.</p>
+
+            <h2>⚡ EtherChannel with LACP</h2>
+            <h3>Link Aggregation Benefits</h3>
+            <p>EtherChannel combines multiple physical links into a single logical link, providing increased bandwidth and redundancy. Using LACP (Link Aggregation Control Protocol), the system can automatically detect link failures and redistribute traffic across remaining links.</p>
+
+            <ul>
+                <li><strong>Bandwidth Aggregation:</strong> 2 x 1 Gbps = 2 Gbps combined throughput</li>
+                <li><strong>Automatic Failover:</strong> If one link fails, traffic instantly moves to the other</li>
+                <li><strong>Load Balancing:</strong> Traffic distributed across all active links</li>
+                <li><strong>No Spanning Tree Blocking:</strong> All links forward traffic simultaneously</li>
+            </ul>
+
+            <h3>Implementation: New York Office</h3>
+            <p>Configured EtherChannel between NY router and switch using two GigabitEthernet interfaces with LACP for dynamic negotiation, achieving 2 Gbps aggregate bandwidth with automatic failover.</p>
+
+            <h2>🛡️ Rapid PVST+ Spanning Tree</h2>
+            <h3>Understanding Spanning Tree Protocol</h3>
+            <p>STP prevents Layer 2 loops by creating a loop-free logical topology. Without STP, broadcast frames would circulate indefinitely, causing a broadcast storm that brings down the network within seconds.</p>
+
+            <table>
+                <tr>
+                    <th>Protocol</th>
+                    <th>Convergence Time</th>
+                    <th>Per-VLAN</th>
+                </tr>
+                <tr>
+                    <td>STP (802.1D)</td>
+                    <td>30-50 seconds</td>
+                    <td>❌ Single instance</td>
+                </tr>
+                <tr>
+                    <td>RSTP (802.1w)</td>
+                    <td>1-2 seconds</td>
+                    <td>❌ Single instance</td>
+                </tr>
+                <tr>
+                    <td><strong>Rapid PVST+</strong> ⭐</td>
+                    <td>1-2 seconds</td>
+                    <td>✓ Per VLAN</td>
+                </tr>
+                <tr>
+                    <td>MSTP (802.1s)</td>
+                    <td>1-2 seconds</td>
+                    <td>✓ Multiple instances</td>
+                </tr>
+            </table>
+
+            <h3>PortFast & BPDU Guard</h3>
+            <ul>
+                <li><strong>PortFast:</strong> Allows access ports to bypass STP listening/learning states, bringing up end devices instantly</li>
+                <li><strong>BPDU Guard:</strong> Protects against accidental switch connections that could disrupt the STP topology by immediately err-disabling ports that receive BPDUs</li>
+            </ul>
+
+            <h2>✅ Security Testing Results</h2>
+            <table>
+                <tr>
+                    <th>Security Feature</th>
+                    <th>Test Performed</th>
+                    <th>Result</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>SSH Access</td>
+                    <td>Remote login with encrypted session</td>
+                    <td>Successful authentication</td>
+                    <td style="color: #68d391; font-weight: bold;">✓ PASS</td>
+                </tr>
+                <tr>
+                    <td>Telnet Block</td>
+                    <td>Attempted Telnet connection</td>
+                    <td>Connection refused</td>
+                    <td style="color: #68d391; font-weight: bold;">✓ PASS</td>
+                </tr>
+                <tr>
+                    <td>Port Security</td>
+                    <td>Connected 3rd device to port with max 2 MACs</td>
+                    <td>Violation logged, traffic dropped</td>
+                    <td style="color: #68d391; font-weight: bold;">✓ PASS</td>
+                </tr>
+                <tr>
+                    <td>EtherChannel Failover</td>
+                    <td>Disabled one member link</td>
+                    <td>Traffic continued on remaining link</td>
+                    <td style="color: #68d391; font-weight: bold;">✓ PASS</td>
+                </tr>
+                <tr>
+                    <td>BPDU Guard</td>
+                    <td>Simulated rogue switch connection</td>
+                    <td>Port err-disabled immediately</td>
+                    <td style="color: #68d391; font-weight: bold;">✓ PASS</td>
+                </tr>
+            </table>
+
+            <h2>🎯 Key Achievements</h2>
+            <div class="info-box">
+                <strong>✓ Security Hardening Complete</strong>
+                <ul style="margin-top: 10px;">
+                    <li><strong>6 routers</strong> secured with SSH v2 and RSA 1024-bit encryption</li>
+                    <li><strong>11 switches</strong> protected with port security (max 2 MACs, restrict mode)</li>
+                    <li><strong>2 Gbps</strong> aggregate bandwidth achieved with EtherChannel/LACP</li>
+                    <li><strong>Zero loops</strong> guaranteed with Rapid PVST+ and BPDU Guard</li>
+                    <li><strong>100% test success</strong> rate across all security features</li>
+                </ul>
+            </div>
+
+            <h3>Defense-in-Depth Layers</h3>
+            <ul>
+                <li><strong>Layer 1 (Physical):</strong> Port security prevents unauthorized devices</li>
+                <li><strong>Layer 2 (Data Link):</strong> STP prevents loops, MAC security prevents flooding</li>
+                <li><strong>Layer 3 (Network):</strong> ACLs control inter-VLAN traffic</li>
+                <li><strong>Application Layer:</strong> SSH encrypts management traffic</li>
+            </ul>
+
+            <h2>🎓 Skills Demonstrated</h2>
+            <ul>
+                <li>SSH v2 configuration and RSA key management</li>
+                <li>Port security implementation and violation handling</li>
+                <li>EtherChannel configuration with LACP protocol</li>
+                <li>Rapid PVST+ spanning tree optimization</li>
+                <li>PortFast and BPDU Guard deployment</li>
+                <li>Security testing and verification methodologies</li>
+                <li>Defense-in-depth security architecture</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p><strong>Grace Wanjiru Irungu</strong> | MS Telecommunication Networks</p>
+            <p>Northeastern University | <a href="mailto:irungu.gr@northeastern.edu">irungu.gr@northeastern.edu</a></p>
+            <p style="margin-top: 15px;"><a href="index.html">← Back to Portfolio</a></p>
+        </footer>
+    </div>
+</body>
+</html>

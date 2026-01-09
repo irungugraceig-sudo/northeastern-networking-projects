@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Routing & VLSM Subnetting | Grace Wanjiru Irungu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #050510;
+            color: #d4d4e8;
+            line-height: 1.7;
+        }
+        
+        .stars-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 80% 70%, rgba(255,255,255,0.3), transparent);
+            background-size: 400% 400%;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: rgba(10, 10, 20, 0.92);
+            border-radius: 20px;
+            border: 1px solid rgba(88, 28, 135, 0.3);
+            box-shadow: 0 0 40px rgba(88, 28, 135, 0.2);
+        }
+        
+        header {
+            background: linear-gradient(135deg, rgba(59, 7, 100, 0.95) 0%, rgba(88, 28, 135, 0.95) 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d4c5e8;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            text-shadow: 0 0 10px rgba(88, 28, 135, 0.5);
+        }
+        
+        h3 {
+            color: #b4a5d8;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin: 15px 0;
+            color: #c4c4d8;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 15, 30, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(88, 28, 135, 0.3);
+        }
+        
+        th {
+            background: rgba(88, 28, 135, 0.3);
+            color: #d4c5e8;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: rgba(88, 28, 135, 0.1);
+        }
+        
+        .info-box {
+            background: rgba(59, 7, 100, 0.2);
+            border-left: 4px solid #9333ea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .calculation-box {
+            background: rgba(15, 15, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid rgba(88, 28, 135, 0.4);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .calculation-step {
+            margin: 15px 0;
+            padding-left: 20px;
+            border-left: 2px solid #9333ea;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            color: #c4c4d8;
+        }
+        
+        .highlight {
+            color: #a855f7;
+            font-weight: 600;
+        }
+        
+        footer {
+            background: rgba(10, 10, 18, 0.98);
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(88, 28, 135, 0.4);
+        }
+        
+        footer a {
+            color: #9333ea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1>📊 Static Routing & VLSM Subnetting</h1>
+            <p class="subtitle">Enterprise Network Design with Variable Length Subnet Masking</p>
+            <div class="tech-badges">
+                <span class="badge">Static Routing</span>
+                <span class="badge">VLSM</span>
+                <span class="badge">Subnetting</span>
+                <span class="badge">Class C Network</span>
+                <span class="badge">6 Departments</span>
+            </div>
+        </header>
+        
+        <div class="content">
+            <h2>📋 Project Overview</h2>
+            <p>Designed and implemented a static routing network for a robotics company expanding its infrastructure using a Class C network address (195.202.88.0/24). Applied Variable Length Subnet Masking (VLSM) to efficiently allocate IP addresses across six departments with varying host requirements.</p>
+            
+            <div class="info-box">
+                <strong>🎯 Challenge:</strong> Efficiently subnet a single Class C network (256 total addresses) to accommodate 6 departments ranging from 16 to 34 hosts each, minimizing address waste while maintaining scalability.
+            </div>
+
+            <h2>📐 Network Requirements</h2>
+            <table>
+                <tr>
+                    <th>Department</th>
+                    <th>Required Hosts</th>
+                    <th>Subnet Size</th>
+                    <th>Usable IPs</th>
+                </tr>
+                <tr>
+                    <td>Sales</td>
+                    <td>34</td>
+                    <td>/26</td>
+                    <td>62</td>
+                </tr>
+                <tr>
+                    <td>Customer Support</td>
+                    <td>30</td>
+                    <td>/27</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>R & D</td>
+                    <td>26</td>
+                    <td>/27</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Finance</td>
+                    <td>19</td>
+                    <td>/27</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>IT</td>
+                    <td>18</td>
+                    <td>/27</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Management</td>
+                    <td>16</td>
+                    <td>/27</td>
+                    <td>30</td>
+                </tr>
+            </table>
+
+            <h2>🧮 VLSM Calculation Process</h2>
+            
+            <h3>Step 1: Determine Required Subnet Sizes</h3>
+            <div class="calculation-box">
+                <div class="calculation-step">
+                    <strong class="highlight">Sales (34 hosts):</strong><br>
+                    Need: 34 + 2 (network + broadcast) = 36 addresses<br>
+                    Next power of 2: 2^6 = 64 addresses<br>
+                    Result: /26 subnet (62 usable)
+                </div>
+                
+                <div class="calculation-step">
+                    <strong class="highlight">Customer Support (30 hosts):</strong><br>
+                    Need: 30 + 2 = 32 addresses<br>
+                    Exactly: 2^5 = 32 addresses<br>
+                    Result: /27 subnet (30 usable)
+                </div>
+                
+                <div class="calculation-step">
+                    <strong class="highlight">Other Departments (16-26 hosts):</strong><br>
+                    Need: 26 + 2 = 28 addresses max<br>
+                    Next power of 2: 2^5 = 32 addresses<br>
+                    Result: /27 subnet (30 usable) for each
+                </div>
+            </div>
+
+            <h3>Step 2: Subnet Allocation (Starting from Largest)</h3>
+            <table>
+                <tr>
+                    <th>Department</th>
+                    <th>Network Address</th>
+                    <th>Subnet Mask</th>
+                    <th>First Usable</th>
+                    <th>Last Usable</th>
+                    <th>Broadcast</th>
+                </tr>
+                <tr>
+                    <td><strong>Sales</strong></td>
+                    <td>195.202.88.0/26</td>
+                    <td>255.255.255.192</td>
+                    <td>195.202.88.1</td>
+                    <td>195.202.88.62</td>
+                    <td>195.202.88.63</td>
+                </tr>
+                <tr>
+                    <td><strong>Customer Support</strong></td>
+                    <td>195.202.88.64/27</td>
+                    <td>255.255.255.224</td>
+                    <td>195.202.88.65</td>
+                    <td>195.202.88.94</td>
+                    <td>195.202.88.95</td>
+                </tr>
+                <tr>
+                    <td><strong>R & D</strong></td>
+                    <td>195.202.88.96/27</td>
+                    <td>255.255.255.224</td>
+                    <td>195.202.88.97</td>
+                    <td>195.202.88.126</td>
+                    <td>195.202.88.127</td>
+                </tr>
+                <tr>
+                    <td><strong>Finance</strong></td>
+                    <td>195.202.88.128/27</td>
+                    <td>255.255.255.224</td>
+                    <td>195.202.88.129</td>
+                    <td>195.202.88.158</td>
+                    <td>195.202.88.159</td>
+                </tr>
+                <tr>
+                    <td><strong>IT</strong></td>
+                    <td>195.202.88.160/27</td>
+                    <td>255.255.255.224</td>
+                    <td>195.202.88.161</td>
+                    <td>195.202.88.190</td>
+                    <td>195.202.88.191</td>
+                </tr>
+                <tr>
+                    <td><strong>Management</strong></td>
+                    <td>195.202.88.192/27</td>
+                    <td>255.255.255.224</td>
+                    <td>195.202.88.193</td>
+                    <td>195.202.88.222</td>
+                    <td>195.202.88.223</td>
+                </tr>
+            </table>
+
+            <h2>🎯 Key Concepts Demonstrated</h2>
+            
+            <h3>Class C Network Analysis</h3>
+            <ul>
+                <li><strong>Network Bits:</strong> First 24 bits (195.202.88) represent the network portion</li>
+                <li><strong>Host Bits:</strong> Last 8 bits available for host addressing</li>
+                <li><strong>Maximum Subnets:</strong> 2^6 = 64 possible subnets (leaving 2 bits for hosts)</li>
+                <li><strong>Minimum Subnet Size:</strong> /30 (2 usable hosts) to maintain 4 addresses per subnet</li>
+            </ul>
+
+            <h3>VLSM Benefits</h3>
+            <ul>
+                <li><strong>Efficiency:</strong> Allocates appropriate subnet sizes based on actual requirements</li>
+                <li><strong>Waste Reduction:</strong> Sales gets 62 IPs (not 126), others get 30 IPs (not 62)</li>
+                <li><strong>Scalability:</strong> Each department has room for growth within assigned range</li>
+                <li><strong>Address Conservation:</strong> Unused addresses (224-255) available for future expansion</li>
+            </ul>
+
+            <h3>Subnet Mask Calculation</h3>
+            <div class="calculation-box">
+                <strong>/26 Subnet:</strong><br>
+                Binary: 11111111.11111111.11111111.11000000<br>
+                Decimal: 255.255.255.192<br>
+                Host bits: 6 → 2^6 = 64 total, 62 usable<br><br>
+                
+                <strong>/27 Subnet:</strong><br>
+                Binary: 11111111.11111111.11111111.11100000<br>
+                Decimal: 255.255.255.224<br>
+                Host bits: 5 → 2^5 = 32 total, 30 usable
+            </div>
+
+            <h2>📊 Address Utilization Summary</h2>
+            <div class="info-box">
+                <strong>Total Addresses Used:</strong> 224 out of 256<br>
+                <strong>Efficiency:</strong> 87.5%<br>
+                <strong>Reserved for Growth:</strong> 32 addresses (195.202.88.224-255)<br>
+                <strong>Wasted Addresses:</strong> Minimal due to VLSM optimization
+            </div>
+
+            <h2>🔍 Technical Implementation</h2>
+            
+            <h3>Static Routing Configuration</h3>
+            <p>Each department connected via static routes configured on edge routers. No dynamic routing protocols used, ensuring:</p>
+            <ul>
+                <li>Predictable routing paths</li>
+                <li>Lower overhead on router resources</li>
+                <li>Enhanced security through explicit route control</li>
+                <li>Simplified troubleshooting for small-scale network</li>
+            </ul>
+
+            <h3>Key Learnings</h3>
+            <ul>
+                <li><strong>VLSM Mastery:</strong> Applied variable-length subnetting to real-world scenario</li>
+                <li><strong>Binary Arithmetic:</strong> Calculated subnet boundaries using binary/decimal conversion</li>
+                <li><strong>Address Planning:</strong> Balanced efficiency with future scalability</li>
+                <li><strong>Documentation:</strong> Maintained clear subnet allocation records for network management</li>
+            </ul>
+
+            <h2>✅ Project Outcomes</h2>
+            <div class="info-box">
+                <strong>Success Metrics:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>✓ All 6 departments accommodated within single Class C network</li>
+                    <li>✓ Zero IP address conflicts due to careful boundary planning</li>
+                    <li>✓ 13% address space reserved for future growth</li>
+                    <li>✓ Optimal subnet sizes minimizing waste while allowing expansion</li>
+                    <li>✓ Clear documentation enabling easy network administration</li>
+                </ul>
+            </div>
+
+            <h2>🎓 Skills Demonstrated</h2>
+            <ul>
+                <li>Advanced subnetting with VLSM</li>
+                <li>Binary-to-decimal conversion</li>
+                <li>Subnet mask calculation</li>
+                <li>Network address planning</li>
+                <li>Static routing implementation</li>
+                <li>IP address conservation strategies</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p><strong>Grace Wanjiru Irungu</strong> | MS Telecommunication Networks</p>
+            <p>Northeastern University | <a href="mailto:irungu.gr@northeastern.edu">irungu.gr@northeastern.edu</a></p>
+            <p style="margin-top: 15px;"><a href="index.html">← Back to Portfolio</a></p>
+        </footer>
+    </div>
+</body>
+</html>

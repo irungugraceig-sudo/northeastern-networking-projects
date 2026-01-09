@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Area OSPF Enterprise Network | Grace Wanjiru Irungu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #050510;
+            color: #d4d4e8;
+            line-height: 1.7;
+        }
+        
+        .stars-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 80% 70%, rgba(255,255,255,0.3), transparent);
+            background-size: 400% 400%;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: rgba(10, 10, 20, 0.92);
+            border-radius: 20px;
+            border: 1px solid rgba(88, 28, 135, 0.3);
+            box-shadow: 0 0 40px rgba(88, 28, 135, 0.2);
+        }
+        
+        header {
+            background: linear-gradient(135deg, rgba(59, 7, 100, 0.95) 0%, rgba(88, 28, 135, 0.95) 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d4c5e8;
+            font-size: 2em;
+            margin: 35px 0 20px 0;
+            text-shadow: 0 0 10px rgba(88, 28, 135, 0.5);
+        }
+        
+        h3 {
+            color: #b4a5d8;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+        
+        p {
+            margin: 15px 0;
+            color: #c4c4d8;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(15, 15, 30, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(88, 28, 135, 0.3);
+        }
+        
+        th {
+            background: rgba(88, 28, 135, 0.3);
+            color: #d4c5e8;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: rgba(88, 28, 135, 0.1);
+        }
+        
+        .info-box {
+            background: rgba(59, 7, 100, 0.2);
+            border-left: 4px solid #9333ea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin: 10px 0;
+            color: #c4c4d8;
+        }
+        
+        .topology-diagram {
+            background: rgba(15, 15, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            color: #68d391;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        footer {
+            background: rgba(10, 10, 18, 0.98);
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(88, 28, 135, 0.4);
+        }
+        
+        footer a {
+            color: #9333ea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1>🌐 Multi-Area OSPF Enterprise Network</h1>
+            <p class="subtitle">Global Network Infrastructure for Five International Offices</p>
+            <div class="tech-badges">
+                <span class="badge">OSPF Multi-Area</span>
+                <span class="badge">VLANs</span>
+                <span class="badge">Extended ACLs</span>
+                <span class="badge">DHCP/DNS</span>
+                <span class="badge">Cisco Packet Tracer</span>
+            </div>
+        </header>
+        
+        <div class="content">
+            <h2>📋 Project Overview</h2>
+            <p>Designed and implemented a scalable, secure enterprise network connecting five geographically distributed offices using advanced routing protocols and security technologies. The network serves a multinational organization with headquarters in Boston and Mumbai, and branch offices in New York, London, and Germany.</p>
+            
+            <div class="info-box">
+                <strong>Project Scope:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>5 offices connected via centralized hub-and-spoke topology</li>
+                    <li>Multi-area OSPF with Area 0 backbone + 5 stub areas</li>
+                    <li>24 end-user devices across 11 VLANs</li>
+                    <li>Finance department isolation using extended ACLs</li>
+                    <li>Automated IP management with DHCP and DNS services</li>
+                </ul>
+            </div>
+
+            <h2>🏗️ Network Topology</h2>
+            <div class="topology-diagram">
+                    CORE-R0 (Area 0)
+                Backbone Router
+             Router-ID: 0.0.0.0
+                    |
+    ┌───────┬───────┼───────┬───────┐
+    |       |       |       |       |
+  BO-R1  MUM-R1  LON-R1  NYR-R1  GER-R1
+ Area 1  Area 2  Area 3  Area 4  Area 5
+ BOSTON  MUMBAI  LONDON  NEW YORK GERMANY
+1.1.1.1  2.2.2.2  3.3.3.3  4.4.4.4  5.5.5.5
+    |       |       |       |       |
+3 Switches 3 Switches 1 Switch 1 Switch 1 Switch
+FIN/HR/TECH FIN/HR/TECH HR+TECH  HR+TECH  HR+TECH
+            </div>
+
+            <h3>Device Inventory</h3>
+            <table>
+                <tr>
+                    <th>Location</th>
+                    <th>Routers</th>
+                    <th>Switches</th>
+                    <th>End Devices</th>
+                    <th>Servers</th>
+                </tr>
+                <tr>
+                    <td>Boston HQ</td>
+                    <td>1 (Cisco 2911)</td>
+                    <td>3</td>
+                    <td>6 PCs</td>
+                    <td>DHCP + DNS</td>
+                </tr>
+                <tr>
+                    <td>Mumbai HQ</td>
+                    <td>1 (Cisco 2911)</td>
+                    <td>3</td>
+                    <td>6 PCs</td>
+                    <td>DHCP</td>
+                </tr>
+                <tr>
+                    <td>New York</td>
+                    <td>1 (Cisco 1941)</td>
+                    <td>1</td>
+                    <td>4 PCs</td>
+                    <td>DHCP</td>
+                </tr>
+                <tr>
+                    <td>London</td>
+                    <td>1 (Cisco 1941)</td>
+                    <td>1</td>
+                    <td>4 PCs</td>
+                    <td>DHCP</td>
+                </tr>
+                <tr>
+                    <td>Germany</td>
+                    <td>1 (Cisco 1941)</td>
+                    <td>1</td>
+                    <td>4 PCs</td>
+                    <td>DHCP</td>
+                </tr>
+                <tr>
+                    <td>Core</td>
+                    <td>1 (Cisco 2911)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr style="font-weight: bold; background: rgba(88, 28, 135, 0.2);">
+                    <td>Total</td>
+                    <td>6</td>
+                    <td>11</td>
+                    <td>24</td>
+                    <td>6</td>
+                </tr>
+            </table>
+
+            <h2>📐 IP Addressing Scheme</h2>
+            <p>The network uses the 192.168.0.0/16 private address space with Variable Length Subnet Masking (VLSM) for efficient address allocation.</p>
+
+            <h3>WAN Links (Point-to-Point /30 subnets)</h3>
+            <table>
+                <tr>
+                    <th>Link</th>
+                    <th>Network</th>
+                    <th>Core IP</th>
+                    <th>Office IP</th>
+                </tr>
+                <tr>
+                    <td>CORE ↔ Boston</td>
+                    <td>192.168.0.0/30</td>
+                    <td>192.168.0.1</td>
+                    <td>192.168.0.2</td>
+                </tr>
+                <tr>
+                    <td>CORE ↔ Mumbai</td>
+                    <td>192.168.0.4/30</td>
+                    <td>192.168.0.5</td>
+                    <td>192.168.0.6</td>
+                </tr>
+                <tr>
+                    <td>CORE ↔ New York</td>
+                    <td>192.168.0.8/30</td>
+                    <td>192.168.0.9</td>
+                    <td>192.168.0.10</td>
+                </tr>
+                <tr>
+                    <td>CORE ↔ London</td>
+                    <td>192.168.0.12/30</td>
+                    <td>192.168.0.13</td>
+                    <td>192.168.0.14</td>
+                </tr>
+                <tr>
+                    <td>CORE ↔ Germany</td>
+                    <td>192.168.0.16/30</td>
+                    <td>192.168.0.17</td>
+                    <td>192.168.0.18</td>
+                </tr>
+            </table>
+
+            <h3>Headquarters LANs (Boston & Mumbai)</h3>
+            <p>Each HQ uses /26 subnets (62 usable IPs per department):</p>
+            <table>
+                <tr>
+                    <th>Office</th>
+                    <th>Department</th>
+                    <th>VLAN</th>
+                    <th>Network</th>
+                    <th>Gateway</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">Boston</td>
+                    <td>Finance</td>
+                    <td>10</td>
+                    <td>192.168.1.0/26</td>
+                    <td>192.168.1.1</td>
+                </tr>
+                <tr>
+                    <td>HR</td>
+                    <td>20</td>
+                    <td>192.168.1.64/26</td>
+                    <td>192.168.1.65</td>
+                </tr>
+                <tr>
+                    <td>Technical</td>
+                    <td>30</td>
+                    <td>192.168.1.128/26</td>
+                    <td>192.168.1.129</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Mumbai</td>
+                    <td>Finance</td>
+                    <td>10</td>
+                    <td>192.168.2.0/26</td>
+                    <td>192.168.2.1</td>
+                </tr>
+                <tr>
+                    <td>HR</td>
+                    <td>20</td>
+                    <td>192.168.2.64/26</td>
+                    <td>192.168.2.65</td>
+                </tr>
+                <tr>
+                    <td>Technical</td>
+                    <td>30</td>
+                    <td>192.168.2.128/26</td>
+                    <td>192.168.2.129</td>
+                </tr>
+            </table>
+
+            <h2>🔄 OSPF Multi-Area Design</h2>
+            <p>The network implements hierarchical OSPF with a backbone (Area 0) and five stub areas for optimal scalability:</p>
+            <table>
+                <tr>
+                    <th>Area</th>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Router ID</th>
+                </tr>
+                <tr>
+                    <td>Area 0</td>
+                    <td>Backbone</td>
+                    <td>Core</td>
+                    <td>0.0.0.0</td>
+                </tr>
+                <tr>
+                    <td>Area 1</td>
+                    <td>Standard</td>
+                    <td>Boston</td>
+                    <td>1.1.1.1</td>
+                </tr>
+                <tr>
+                    <td>Area 2</td>
+                    <td>Standard</td>
+                    <td>Mumbai</td>
+                    <td>2.2.2.2</td>
+                </tr>
+                <tr>
+                    <td>Area 3</td>
+                    <td>Standard</td>
+                    <td>London</td>
+                    <td>3.3.3.3</td>
+                </tr>
+                <tr>
+                    <td>Area 4</td>
+                    <td>Standard</td>
+                    <td>New York</td>
+                    <td>4.4.4.4</td>
+                </tr>
+                <tr>
+                    <td>Area 5</td>
+                    <td>Standard</td>
+                    <td>Germany</td>
+                    <td>5.5.5.5</td>
+                </tr>
+            </table>
+
+            <div class="info-box">
+                <strong>Design Rationale:</strong> The multi-area design localizes link-state database information within each area, reducing memory requirements and improving convergence time. All inter-area traffic transits through Area 0, ensuring loop-free routing.
+            </div>
+
+            <h2>🔐 Security Implementation</h2>
+            <h3>Finance Department Isolation</h3>
+            <p>Extended ACLs protect Finance departments from unauthorized access while allowing Finance to initiate connections to other departments.</p>
+            
+            <div class="info-box">
+                <strong>ACL Policy:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>✅ Finance → HR: Allowed</li>
+                    <li>✅ Finance → Technical: Allowed</li>
+                    <li>✅ Finance (Boston) ↔ Finance (Mumbai): Allowed</li>
+                    <li>❌ HR → Finance: Blocked</li>
+                    <li>❌ Technical → Finance: Blocked</li>
+                </ul>
+            </div>
+
+            <h2>🌐 Network Services</h2>
+            <h3>DHCP Configuration</h3>
+            <p>DHCP servers deployed in Technical departments automatically assign IP addresses, subnet masks, default gateways, and DNS server information to client devices.</p>
+
+            <h3>DNS Implementation</h3>
+            <p>DNS server in Boston Technical department provides hostname resolution for all network routers, enabling administrators to access devices by name.</p>
+
+            <h2>✅ Testing Results</h2>
+            <table>
+                <tr>
+                    <th>Test Category</th>
+                    <th>Tests Performed</th>
+                    <th>Success Rate</th>
+                </tr>
+                <tr>
+                    <td>WAN Connectivity</td>
+                    <td>5</td>
+                    <td style="color: #68d391;">100%</td>
+                </tr>
+                <tr>
+                    <td>OSPF Adjacencies</td>
+                    <td>5</td>
+                    <td style="color: #68d391;">100%</td>
+                </tr>
+                <tr>
+                    <td>Route Learning</td>
+                    <td>6</td>
+                    <td style="color: #68d391;">100%</td>
+                </tr>
+                <tr>
+                    <td>VLAN Functionality</td>
+                    <td>8</td>
+                    <td style="color: #68d391;">100%</td>
+                </tr>
+                <tr>
+                    <td>DHCP Assignment</td>
+                    <td>6</td>
+                    <td style="color: #68d391;">100%</td>
+                </tr>
+                <tr>
+                    <td>DNS Resolution</td>
+                    <td>5</td>
+                    <td style="color: #68d391;">100%</td>
+                </tr>
+                <tr>
+                    <td>ACL Security</td>
+                    <td>8</td>
+                    <td style="color: #68d391;">100%</td>
+                </tr>
+                <tr style="font-weight: bold; background: rgba(88, 28, 135, 0.2);">
+                    <td>Total</td>
+                    <td>43</td>
+                    <td style="color: #68d391;">100%</td>
+                </tr>
+            </table>
+
+            <h2>🎯 Key Achievements</h2>
+            <ul>
+                <li><strong>Scalability:</strong> Hierarchical design supports easy addition of new offices and departments</li>
+                <li><strong>Efficiency:</strong> OSPF converges in <2 seconds after topology changes</li>
+                <li><strong>Security:</strong> Finance isolation policy enforced with 100% effectiveness</li>
+                <li><strong>Automation:</strong> Zero-touch IP configuration for all end devices</li>
+                <li><strong>Reliability:</strong> Point-to-point WAN configuration eliminates DR/BDR overhead</li>
+            </ul>
+
+            <h2>🎓 Skills Demonstrated</h2>
+            <ul>
+                <li>Multi-area OSPF routing protocol configuration and troubleshooting</li>
+                <li>VLAN segmentation and inter-VLAN routing (router-on-a-stick)</li>
+                <li>Extended ACL design and security policy enforcement</li>
+                <li>DHCP and DNS service deployment</li>
+                <li>VLSM subnetting and IP address management</li>
+                <li>Enterprise network design and documentation</li>
+                <li>Systematic testing and verification methodologies</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p><strong>Grace Wanjiru Irungu</strong> | MS Telecommunication Networks</p>
+            <p>Northeastern University | <a href="mailto:irungu.gr@northeastern.edu">irungu.gr@northeastern.edu</a></p>
+            <p style="margin-top: 15px;"><a href="index.html">← Back to Portfolio</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace Wanjiru Irungu - Network Engineering Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.8; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes galaxyRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 15px rgba(88, 28, 135, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(88, 28, 135, 0.7); }
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background: #050510;
+            color: #d4d4e8;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .stars-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(1px 1px at 85% 75%, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 50% 50%, rgba(255,255,255,0.2), transparent);
+            background-size: 300% 300%, 250% 250%, 400% 400%;
+            animation: starTwinkle 12s ease-in-out infinite;
+        }
+        
+        .nebula {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 15% 15%, rgba(88, 28, 135, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 85%, rgba(59, 7, 100, 0.15) 0%, transparent 50%);
+            opacity: 0.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            background: rgba(10, 10, 20, 0.92);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(88, 28, 135, 0.3);
+            box-shadow: 
+                0 0 40px rgba(88, 28, 135, 0.2),
+                inset 0 0 40px rgba(88, 28, 135, 0.05);
+        }
+        
+        header {
+            background: linear-gradient(135deg, 
+                rgba(59, 7, 100, 0.95) 0%, 
+                rgba(88, 28, 135, 0.95) 50%, 
+                rgba(109, 40, 217, 0.95) 100%);
+            color: white;
+            padding: 70px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: galaxyRotate 40s linear infinite;
+        }
+        
+        header .content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+        
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.2em;
+            margin-bottom: 18px;
+            font-weight: 900;
+            text-shadow: 
+                0 0 15px rgba(255, 255, 255, 0.6),
+                0 0 30px rgba(109, 40, 217, 0.4);
+            letter-spacing: 2px;
+        }
+        
+        header .tagline {
+            font-size: 1.3em;
+            opacity: 0.92;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        
+        header .subtitle {
+            font-size: 1.05em;
+            opacity: 0.8;
+            font-style: italic;
+            margin-top: 12px;
+            color: #d4c5e8;
+        }
+        
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px 26px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .quick-link-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(109, 40, 217, 0.4);
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 35px;
+        }
+        
+        .stat-box {
+            background: rgba(88, 28, 135, 0.15);
+            padding: 22px;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(88, 28, 135, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-8px);
+            background: rgba(88, 28, 135, 0.25);
+            border-color: rgba(109, 40, 217, 0.5);
+            box-shadow: 0 8px 25px rgba(88, 28, 135, 0.3);
+        }
+        
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 6px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.85;
+            letter-spacing: 0.3px;
+        }
+        
+        .content {
+            padding: 50px;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, 
+                rgba(59, 7, 100, 0.2) 0%, 
+                rgba(88, 28, 135, 0.2) 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            border: 1.5px solid rgba(88, 28, 135, 0.4);
+            box-shadow: 0 8px 30px rgba(88, 28, 135, 0.15);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .intro h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d4c5e8;
+            margin-bottom: 18px;
+            font-size: 1.9em;
+            text-shadow: 0 0 8px rgba(88, 28, 135, 0.5);
+        }
+        
+        .intro p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #c4c4d8;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.4em;
+            color: #d4c5e8;
+            margin: 50px 0 40px 0;
+            font-weight: 700;
+            animation: fadeInUp 1s ease 0.5s both;
+            text-shadow: 0 0 15px rgba(88, 28, 135, 0.5);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, 
+                rgba(88, 28, 135, 0) 0%, 
+                rgba(88, 28, 135, 1) 50%, 
+                rgba(88, 28, 135, 0) 100%);
+            margin: 15px auto;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+            gap: 35px;
+            margin-bottom: 50px;
+        }
+        
+        .project-card {
+            background: rgba(15, 15, 30, 0.8);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1.5px solid rgba(88, 28, 135, 0.3);
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(88, 28, 135, 0.6);
+            box-shadow: 0 20px 50px rgba(88, 28, 135, 0.3);
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, 
+                rgba(59, 7, 100, 0.9) 0%, 
+                rgba(88, 28, 135, 0.9) 100%);
+            padding: 28px;
+            color: white;
+            position: relative;
+        }
+        
+        .project-icon {
+            font-size: 3em;
+            margin-bottom: 12px;
+            display: block;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+        }
+        
+        .project-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        
+        .project-body {
+            padding: 28px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .tech-badge {
+            background: linear-gradient(135deg, 
+                rgba(88, 28, 135, 0.5) 0%, 
+                rgba(109, 40, 217, 0.5) 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: 1px solid rgba(88, 28, 135, 0.6);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(88, 28, 135, 0.4);
+        }
+        
+        .project-card ul {
+            margin: 20px 0 25px 20px;
+            list-style: none;
+        }
+        
+        .project-card li {
+            margin: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            color: #c4c4d8;
+            line-height: 1.6;
+        }
+        
+        .project-card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #9333ea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .view-button {
+            display: inline-block;
+            background: linear-gradient(135deg, 
+                rgba(88, 28, 135, 0.7) 0%, 
+                rgba(109, 40, 217, 0.7) 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            border: 1.5px solid rgba(88, 28, 135, 0.5);
+        }
+        
+        .view-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(88, 28, 135, 0.5);
+            background: linear-gradient(135deg, 
+                rgba(88, 28, 135, 0.9) 0%, 
+                rgba(109, 40, 217, 0.9) 100%);
+        }
+        
+        .skills-section {
+            background: linear-gradient(135deg, 
+                rgba(59, 7, 100, 0.15) 0%, 
+                rgba(88, 28, 135, 0.15) 100%);
+            padding: 45px;
+            border-radius: 18px;
+            margin-top: 50px;
+            border: 1.5px solid rgba(88, 28, 135, 0.3);
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+        
+        .skills-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d4c5e8;
+            margin-bottom: 35px;
+            text-align: center;
+            font-size: 2.2em;
+            text-shadow: 0 0 12px rgba(88, 28, 135, 0.5);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+        
+        .skill-category {
+            background: rgba(15, 15, 30, 0.6);
+            padding: 28px;
+            border-radius: 15px;
+            border: 1.5px solid rgba(88, 28, 135, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-6px);
+            border-color: rgba(88, 28, 135, 0.6);
+            box-shadow: 0 12px 30px rgba(88, 28, 135, 0.2);
+        }
+        
+        .skill-category h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #b4a5d8;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-category h3::before {
+            content: "⚡";
+            font-size: 1.3em;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 8px 0;
+            color: #c4c4d8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-category li::before {
+            content: "✓";
+            color: #9333ea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, 
+                rgba(10, 10, 18, 0.98) 0%, 
+                rgba(20, 20, 35, 0.98) 100%);
+            color: white;
+            text-align: center;
+            padding: 45px 35px;
+            position: relative;
+            border-top: 1.5px solid rgba(88, 28, 135, 0.4);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                rgba(88, 28, 135, 0.8) 50%, 
+                transparent 100%);
+        }
+        
+        footer h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 12px rgba(88, 28, 135, 0.5);
+        }
+        
+        footer a {
+            color: #b4a5d8;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #9333ea;
+        }
+        
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: rgba(88, 28, 135, 0.25);
+            border-radius: 50%;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            border: 1.5px solid rgba(88, 28, 135, 0.4);
+        }
+        
+        .social-links a:hover {
+            background: rgba(88, 28, 135, 0.45);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(88, 28, 135, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .container { margin: 15px; }
+            header { padding: 40px 25px; }
+            header h1 { font-size: 2.2em; }
+            .content { padding: 30px; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-bg"></div>
+    <div class="nebula"></div>
+    
+    <div class="container">
+        <header>
+            <div class="content">
+                <h1>GRACE WANJIRU IRUNGU</h1>
+                <p class="tagline">TELECOMMUNICATIONS NETWORK ENGINEER</p>
+                <p class="subtitle">"From submarine cables to AI-driven networks—building the future of connectivity"</p>
+                
+                <div class="quick-links">
+                    <a href="mailto:irungu.gr@northeastern.edu" class="quick-link-btn">✉️ CONTACT</a>
+                    <a href="https://www.linkedin.com/in/irungu-w-grace/" target="_blank" class="quick-link-btn">💼 LINKEDIN</a>
+                    <a href="https://github.com/irungugraceig-sudo" target="_blank" class="quick-link-btn">💻 GITHUB</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">7+</span>
+                        <span class="stat-label">YEARS EXPERIENCE</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">GLOBAL OFFICES</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">$102M+</span>
+                        <span class="stat-label">FINANCING</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">SUCCESS RATE</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>🌌 FROM SUBMARINE CABLES TO AI RESEARCH</h2>
+                <p>Seven years building East Africa's telecommunications backbone—managing submarine fiber deployments, securing $102M+ in project financing, and pioneering the first 1,400-meter deep-lake bathymetric survey at Lake Tanganyika. From NOC Engineer to Senior Program Manager, I've led complex international infrastructure projects across multiple countries.</p>
+                <p style="margin-top: 15px;">Now at Northeastern University's XR Immersive Media Lab, I'm analyzing network performance for Quest 3 VR headsets while pursuing my MS in Telecommunication Networks. My transition from infrastructure to AI/ML research is driven by one goal: becoming an inventor, starting with my "whisper protocol" concept for underwater laser communication systems.</p>
+            </div>
+
+            <h2 class="section-title">🚀 FEATURED PROJECTS</h2>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">🌐</span>
+                        <h3>MULTI-AREA OSPF NETWORK</h3>
+                        <p class="subtitle">Global Enterprise Infrastructure</p>
+                    </div>
+                    <div class="project-body">
+                        <div class="tech-stack">
+                            <span class="tech-badge">OSPF Multi-Area</span>
+                            <span class="tech-badge">VLANs</span>
+                            <span class="tech-badge">Extended ACLs</span>
+                            <span class="tech-badge">DHCP/DNS</span>
+                            <span class="tech-badge">Cisco IOS</span>
+                        </div>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Designed production-grade network connecting 5 international offices using hierarchical OSPF routing with Area 0 backbone—demonstrating enterprise-scale scalability and security.</p>
+                        <ul>
+                            <li>Connected Boston, Mumbai, New York, London & Germany via hub-and-spoke topology</li>
+                            <li>6-area OSPF implementation with Area 0 backbone + 5 standard areas</li>
+                            <li>Finance department isolation using extended ACLs (inbound blocked, outbound allowed)</li>
+                            <li>Automated IP management with DHCP/DNS across 24 end devices</li>
+                            <li>Achieved 100% test success rate across 40+ verification tests</li>
+                        </ul>
+                        <a href="dynamic-routing-project.html" class="view-button">EXPLORE PROJECT →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">🛡️</span>
+                        <h3>ADVANCED SECURITY</h3>
+                        <p class="subtitle">Defense-in-Depth Protection</p>
+                    </div>
+                    <div class="project-body">
+                        <div class="tech-stack">
+                            <span class="tech-badge">SSH v2</span>
+                            <span class="tech-badge">Port Security</span>
+                            <span class="tech-badge">EtherChannel</span>
+                            <span class="tech-badge">LACP</span>
+                            <span class="tech-badge">Rapid PVST+</span>
+                        </div>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Implemented enterprise-grade security with multiple defense layers—MAC flooding protection, encrypted management, and link aggregation for maximum network resilience.</p>
+                        <ul>
+                            <li>Replaced Telnet with SSH v2 using RSA 1024-bit encryption</li>
+                            <li>Deployed port security with max 2 MACs per port—restrict mode for attack mitigation</li>
+                            <li>Configured EtherChannel with LACP for 2 Gbps aggregate bandwidth + automatic failover</li>
+                            <li>Implemented Rapid PVST+ with PortFast and BPDU Guard for loop-free topology</li>
+                            <li>Enforced cross-office security policies with extended ACLs</li>
+                        </ul>
+                        <a href="security-optimization-project.html" class="view-button">EXPLORE PROJECT →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">🐧</span>
+                        <h3>LINUX INFRASTRUCTURE</h3>
+                        <p class="subtitle">DNS, DHCP & Web Services</p>
+                    </div>
+                    <div class="project-body">
+                        <div class="tech-stack">
+                            <span class="tech-badge">BIND9 DNS</span>
+                            <span class="tech-badge">ISC DHCP</span>
+                            <span class="tech-badge">Apache2</span>
+                            <span class="tech-badge">iptables</span>
+                            <span class="tech-badge">IPv4/IPv6</span>
+                        </div>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Built complete network infrastructure for Boston startup using Linux services—demonstrating real-world systems administration and automation skills.</p>
+                        <ul>
+                            <li>Configured BIND9 DNS with master-slave replication and dual-stack IPv4/IPv6</li>
+                            <li>Implemented DHCP with dynamic allocation, exclusion ranges, and MAC reservations</li>
+                            <li>Deployed Apache2 web server with virtual hosts and security hardening</li>
+                            <li>Created iptables firewall rules with protocol filtering and IP blocking</li>
+                            <li>Automated backup system with compression and remote transfer via SCP</li>
+                        </ul>
+                        <a href="linux-infrastructure-project.html" class="view-button">EXPLORE PROJECT →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">📡</span>
+                        <h3>SONET & OTN DESIGN</h3>
+                        <p class="subtitle">Optical Transport Networks</p>
+                    </div>
+                    <div class="project-body">
+                        <div class="tech-stack">
+                            <span class="tech-badge">SONET/SDH</span>
+                            <span class="tech-badge">OTN</span>
+                            <span class="tech-badge">Ring Topology</span>
+                            <span class="tech-badge">Protection Switching</span>
+                            <span class="tech-badge">GMP</span>
+                        </div>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Designed optical transport networks with SONET rings and OTN multiplexing—applying telecom infrastructure knowledge to high-speed data transmission.</p>
+                        <ul>
+                            <li>Designed BLSR/UPSR ring topologies with drop-and-continue routing</li>
+                            <li>Calculated OTN frame structures and line rates for ODU2/3/4</li>
+                            <li>Implemented GMP stuffing for client rate adaptation</li>
+                            <li>Analyzed protection switching scenarios and traffic rerouting</li>
+                            <li>Optimized tributary slot allocation for 1GbE, 10GbE, and 22Gbps clients</li>
+                        </ul>
+                        <a href="sonet-otn-project.html" class="view-button">EXPLORE PROJECT →</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">📊</span>
+                        <h3>STATIC ROUTING & VLSM</h3>
+                        <p class="subtitle">Enterprise Subnetting</p>
+                    </div>
+                    <div class="project-body">
+                        <div class="tech-stack">
+                            <span class="tech-badge">VLSM</span>
+                            <span class="tech-badge">Static Routing</span>
+                            <span class="tech-badge">Subnetting</span>
+                            <span class="tech-badge">Class C</span>
+                        </div>
+                        <p style="color: #c4c4d8; margin-bottom: 18px;">Efficiently subneted Class C network for robotics company with 6 departments using Variable Length Subnet Masking.</p>
+                        <ul>
+                            <li>Allocated /26 and /27 subnets for departments with 16-34 hosts</li>
+                            <li>Achieved 87.5% address utilization with minimal waste</li>
+                            <li>Implemented static routing for predictable traffic paths</li>
+                            <li>Reserved 13% address space for future growth</li>
+                            <li>Zero IP conflicts through careful boundary planning</li>
+                        </ul>
+                        <a href="static-routing-project.html" class="view-button">EXPLORE PROJECT →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h2>🛠️ TECHNICAL ARSENAL</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Routing & Switching</h3>
+                        <ul>
+                            <li>Multi-area OSPF design & troubleshooting</li>
+                            <li>Area Border Router (ABR) configuration</li>
+                            <li>802.1Q VLAN trunking & inter-VLAN routing</li>
+                            <li>Router-on-a-stick implementation</li>
+                            <li>Rapid PVST+ spanning tree protocol</li>
+                            <li>EtherChannel/LACP link aggregation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Network Security</h3>
+                        <ul>
+                            <li>Extended ACL architecture</li>
+                            <li>Port security & MAC address filtering</li>
+                            <li>SSH v2 secure management</li>
+                            <li>Security policy enforcement</li>
+                            <li>Firewall design (iptables/UFW)</li>
+                            <li>Attack surface mitigation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Network Services</h3>
+                        <ul>
+                            <li>BIND9 DNS master-slave replication</li>
+                            <li>ISC DHCP server deployment</li>
+                            <li>Apache2 web server configuration</li>
+                            <li>VLSM subnetting strategy</li>
+                            <li>IPv4/IPv6 dual-stack implementation</li>
+                            <li>Network automation & scripting</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Telecom Infrastructure</h3>
+                        <ul>
+                            <li>SONET/SDH ring design</li>
+                            <li>OTN multiplexing & GMP</li>
+                            <li>Submarine fiber cable deployment</li>
+                            <li>$102M+ project financing coordination</li>
+                            <li>International team leadership</li>
+                            <li>Bathymetric survey operations</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Research & Analysis</h3>
+                        <ul>
+                            <li>XR network performance analysis</li>
+                            <li>Quest 3 VR headset testing</li>
+                            <li>GlitchWitch tool proficiency</li>
+                            <li>Technical documentation</li>
+                            <li>Data-driven decision making</li>
+                            <li>Emerging technology evaluation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Platforms</h3>
+                        <ul>
+                            <li>Cisco Packet Tracer</li>
+                            <li>Linux (Ubuntu/Debian)</li>
+                            <li>Cisco IOS CLI</li>
+                            <li>VirtualBox/VMware</li>
+                            <li>Git/GitHub</li>
+                            <li>Network monitoring tools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <h3>GRACE WANJIRU IRUNGU</h3>
+            <p><strong>MS Telecommunication Networks | Northeastern University</strong></p>
+            <p>XR Immersive Media Lab Research Assistant</p>
+            <p>Expected Graduation: June 2027</p>
+            <p style="margin-top: 20px;">
+                <a href="mailto:irungu.gr@northeastern.edu">irungu.gr@northeastern.edu</a>
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/irungugraceig-sudo" target="_blank" title="GitHub">💻</a>
+                <a href="https://www.linkedin.com/in/irungu-w-grace/" target="_blank" title="LinkedIn">💼</a>
+                <a href="mailto:irungu.gr@northeastern.edu" title="Email">✉️</a>
+            </div>
+            <p style="margin-top: 28px; font-size: 0.95em; opacity: 0.75;">
+                From Kenya to Boston | From Cables to AI | The Journey Continues
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
